@@ -13,6 +13,14 @@ menu = {
 }
 money = 0
 
+
+def check(drink, resources):
+    for item in menu[drink]:
+        if item != "cost" and menu[drink][item] > resources[item]:
+            print(f"Sorry, there isn't enough {item}")
+            return False
+        print("Booya!")
+        return True
 #code
 coffe_machine = "on"
 while coffe_machine == "on":
@@ -27,5 +35,6 @@ while coffe_machine == "on":
         coffe_machine = "off"
         break
     elif drink in menu:
-        pass
+        check(drink, resources)
+
 print("Thanks 4 using have a nice day")
